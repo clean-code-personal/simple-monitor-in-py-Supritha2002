@@ -1,8 +1,0 @@
-def checkRange(input,value,low,high):
-    if value < low:
-        print("Attribute ", input," is low")
-        return False
-    else:
-        print("Attribute ", input," is high")
-        return False
-    return True
