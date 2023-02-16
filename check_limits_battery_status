@@ -1,6 +1,0 @@
-def attribute_status(attribute,limit):
-    print(attribute," is ",limit)
-    
-def battery_normal(result):
-    if result==True:
-        print("Battery is in normal condition")
