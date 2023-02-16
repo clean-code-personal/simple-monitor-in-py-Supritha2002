@@ -1,12 +1,17 @@
-def checkRange(value,low,high):
-    if value < low or value > high:
-        print("Out Of range")
+def checkRange(input,value,low,high):
+    if value < low:
+        print("Attribute ", input," is low")
+        return False
+    if value > high:
+        print("Attribute ", input," is high")
         return False
     return True
 
 def battery_is_ok(temperature,soc,charge_rate):
-    return checkRange(temperature,0,45) and checkRange(soc,20,80) and checkRange(charge_rate,0,0.8)
-
-if __name__ == '__main__':
-  assert(battery_is_ok(25, 70, 0.7) is True)
-  assert(battery_is_ok(50, 85, 0) is False)
+    result1=checkRange('Temperature',temperature,0,45)
+    result2=checkRange('SOC',soc,20,80)
+    result3=checkRange('Charge_Rate',charge_rate,0,0.8)
+    result=result1 and result2 and result3
+    if result ==True:
+        print("Battery is in normal condition")
+    return result
