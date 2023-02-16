@@ -9,6 +9,7 @@ def battery_is_ok(temperature,soc,charge_rate):
     if result ==True:
         print("Battery is in normal condition")
     return result
+
 if __name__ == '__main__':
-    assert(battery_is_ok(25, 70, 0.7),True)
-    assert(battery_is_ok(50, 75, 0),False)
+  assert(battery_is_ok(25, 70, 0.7) is True)
+  assert(battery_is_ok(50, 85, 0) is False)
