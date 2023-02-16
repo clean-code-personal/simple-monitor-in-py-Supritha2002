@@ -1,5 +1,5 @@
 def checkRange(value,low,high):
-    if value < low or value < high:
+    if value < low or value > high:
         print("Attribute ",value ," is not in range")
         return False
     return True
