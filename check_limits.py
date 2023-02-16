@@ -1,4 +1,4 @@
-from battery_status import *
+from check_limits_battery_status import *
 def checkRange(input,value,low,high):
     if value < low:
         attribute_status(input,'low')
