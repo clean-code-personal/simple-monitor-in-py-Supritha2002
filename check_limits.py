@@ -1,4 +1,4 @@
-def printmessagewhenLoworHigh(attribute,value,low,high,lang):  #checks status of battery attribute as it is whether low or high
+def printmessagewhenLoworHigh(attribute,value,low,high,lang):  #prints message of battery attribute as it is whether low or high
     if value < low:
         attribute_status_message(attribute,'low',lang)
         return False
