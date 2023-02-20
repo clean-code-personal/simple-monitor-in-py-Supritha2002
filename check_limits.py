@@ -1,14 +1,14 @@
-def checkRange(input,value,low,high,lang):  #checks status of battery attribute
+def printmessagewhenLoworHigh(attribute,value,low,high,lang):  #checks status of battery attribute as it is whether low or high
     if value < low:
-        attribute_status(input,'low',lang)
+        attribute_status_message(attribute,'low',lang)
         return False
     if value > high:
-        attribute_status(input,'high',lang)
+        attribute_status_message(attribute,'high',lang)
         return False
     return True
 
 #extension2 -support multiple languages to print user messages
-def attribute_status(attribute,limit,lang):
+def attribute_status_message(attribute,limit,lang):
     language={
     'german':{'Temperature':'Temperatur',
               'SOC':'Ladezustand',
@@ -28,9 +28,9 @@ def attribute_status(attribute,limit,lang):
                'high':'high'
               }
     }
-    print(language[lang][attribute]," is ",language[lang][limit])
+    print(language[lang][attribute],"-",language[lang][limit])
     
-def battery_normal(result,lang):
+def print_battery_normalmessage(result,lang):
     status_language= {'german' :'Batterie ist in normalem Zustand',
                       'hindi'  :'सामान्य स्थिति में बैटरी'              ,
                       'english':'Battery in normal condition'    
@@ -44,6 +44,6 @@ def convertoCelcius(temperature,unit):  #extension3 - accepts temperature in dif
 
 def battery_is_ok(temperature,tempunit,soc,charge_rate,lang): #checks battery condition
     temperature=convertoCelcius(temperature,tempunit)
-    result=checkRange('Temperature',temperature,0,45,lang) and checkRange('SOC',soc,20,80,lang) and checkRange('Charge_rate',charge_rate,0,0.8,lang)
-    battery_normal(result,lang)
+    result=printmessagewhenLoworHigh('Temperature',temperature,0,45,lang) and printmessagewhenLoworHigh('SOC',soc,20,80,lang) and printmessagewhenLoworHigh('Charge_rate',charge_rate,0,0.8,lang)
+    print_battery_normalmessage(result,lang)
     return result
